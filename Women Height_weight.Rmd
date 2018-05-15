@@ -1,0 +1,22 @@
+---
+title: "Regression Model"
+author: "Shashank Semwal"
+date: "15 May 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+datasets::women
+
+model=lm(weight~.,women)
+model$coefficients[1]
+
+MeanPerError=abs(women[women$height==65,2]-(model$coefficients[2]*65+model$coefficients[1]))*100/women[women$height==65,2]
+MeanPerError
+```
+
